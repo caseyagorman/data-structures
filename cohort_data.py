@@ -177,7 +177,13 @@ def find_cohort_by_student_name(student_list):
 
     # Code goes here
 
-    return "Student not found."
+    student_list = all_students_tuple_list("cohort_data.txt")
+    name = input("Who can we help you find? ")
+    for student in student_list:
+        if student[0] == name:
+            print("{} was in {} cohort.".format(name, student[3]))
+        else:
+            return "Student not found."
 
 
 ##########################################################################################
@@ -236,8 +242,9 @@ def find_house_members_by_student_name(student_list):
 
 #############################################################################
 # Here is some useful code to run these functions without doctests!
-
-# find_cohort_by_student_name(all_students_data)
+filename = "cohort_data.txt"
+all_students_data = all_students_tuple_list(filename)
+find_cohort_by_student_name(all_students_data)
 # find_house_members_by_student_name(all_students_data)
 
 
